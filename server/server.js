@@ -29,6 +29,10 @@ app.post("/addRestaurant", restaurantController.addRestaurant, (req, res) => {
   res.sendStatus(200);
   //.status().json()
 });
+
+// get request and then in middleware find 
+
+
 // statically serve everything in the build folder on the route '/dist'
 app.use("/build", express.static(path.join(__dirname, "../dist")));
 
@@ -37,5 +41,9 @@ app.use("/build", express.static(path.join(__dirname, "../dist")));
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+//how can I update it
+//how can I add it
+//how can I delete it
 
 module.exports = app;
