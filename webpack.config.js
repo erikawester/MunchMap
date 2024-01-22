@@ -47,8 +47,10 @@ module.exports = {
       publicPath: "/",
     },
     proxy: {
-      "/api": "http://localhost:3000",
-      "/addRestaurant": "http://localhost:3000",
+      '/api': 'http://localhost:3000',
+      '/addRestaurant': 'http://localhost:3000',
+      '/displayRestaurants': 'http://localhost:3000',
+      '/updateRestaurants': 'http://localhost:3000',
     },
   },
   //plugin takes index.html and injects script tag into it. moves html file into the dist folder

@@ -4,6 +4,7 @@ const app = express();
 //connecting to local host 3000
 const path = require("path");
 const port = 3000;
+
 //importing middleware functions
 const restaurantController = require("./controllers/restaurantController");
 
@@ -19,7 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 //all get requests/ post / update
-
 app.get("/", (req, res) => {
   res.send("Express is working:D");
 });
@@ -31,7 +31,16 @@ app.post("/addRestaurant", restaurantController.addRestaurant, (req, res) => {
 });
 
 // get request and then in middleware find 
+app.get('/displayRestaurants', restaurantController.displayRestaurants, (req, res) => {
+  console.log('this is running, youve displayed the restaurant')
+  res.send(res.locals)
+})
 
+//update the restaurants with a review using a patch request
+// app.patch('/updateRestaurants', restaurantController.updateRestaurants, (req, res) => {
+//   console.log('has been updated with a review')
+//   res.sendStatus(200)
+// })
 
 // statically serve everything in the build folder on the route '/dist'
 app.use("/build", express.static(path.join(__dirname, "../dist")));
@@ -41,9 +50,5 @@ app.use("/build", express.static(path.join(__dirname, "../dist")));
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-//how can I update it
-//how can I add it
-//how can I delete it
 
 module.exports = app;
